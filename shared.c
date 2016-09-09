@@ -23,7 +23,7 @@ void purgeBuffer(void) {
 	fseek(stdin, 0, SEEK_END);
 }
 
-bool isValidBounds(double input, short int lowerBound, int upperBound) {
+bool isValidBounds(double input, short lowerBound, int upperBound) {
 	if ((input < lowerBound) || (input > upperBound)) {
 		return false;
 	}
