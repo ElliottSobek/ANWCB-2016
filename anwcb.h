@@ -24,9 +24,9 @@
 #define CPP 0.0495
 
 /* Globals */
-short int hoursWorked;
-short int overtimeHours;
 double payRate;
+double hoursWorked;
+double overtimeHours;
 
 // Prototypes //
 
@@ -39,13 +39,13 @@ void mainMenu(void);
 void setPayRate(void);
 void setAmountOfHours(void);
 void setOverTimeHours(void);
-short int getMainMenuInput(void);
+short getMainMenuInput(void);
 double calculateNetIncome(void);
 double calculateGrossIncome(void);
 double calculateDeductions(double);
 
 /* shared prototypes */
 void purgeBuffer(void);
-bool isValidBounds(double, short int, int);
+bool isValidBounds(double, short, int);
 
 #endif // !ANWCB_H

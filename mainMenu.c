@@ -22,7 +22,7 @@
 #include "anwcb.h"
 
 void mainMenu(void) {
-	short int input;
+	short input;
 	input = getMainMenuInput();
 	while (1) {
 		while (false == isValidBounds(input, 0, 4)) {
@@ -32,7 +32,8 @@ void mainMenu(void) {
 		}
 		switch (input) {
 			case 1:
-				printf("Done Calculate %lf\n", calculateNetIncome());
+				printf("\nNet income: %.2lf\n", calculateNetIncome());
+				input = getMainMenuInput();
 				break;
 			case 2:
 				setAmountOfHours();
@@ -52,30 +53,6 @@ void mainMenu(void) {
 	}
 }
 
-short int getMainMenuInput(void) {
-	printf("\n1. Calculate\n2. Set amount of hours (%hi)\n3. Set pay rate (%.2f)"
-		   "\n4. Set amount of overtime hours (%hi)\n0. Exit\n\n", hoursWorked, payRate, overtimeHours);
-	short int input;
-	printf("Enter a menu option: ");
-	scanf("%hi", &input);
-	return input;
-}
-
-void setAmountOfHours(void) {
-	short int amountOfHours;
-	printf("\nEnter an amount of hours between 0 and 8760 inclusive. 0. To go back: ");
-	scanf("%hi", &amountOfHours);
-	while (false == isValidBounds(amountOfHours, 0, 8760)) {
-		purgeBuffer();
-		printf("\nEntered amount of hours not between 1 and 8760 inclusive. 0. To go back: ");
-		scanf("%hi", &amountOfHours);
-	}
-	if (amountOfHours == 0) {
-		return;
-	}
-	hoursWorked = amountOfHours;
-}
-
 void setPayRate(void) {
 	double rateOfPay;
 	printf("\nEnter a pay rate between 0 and 1,000 inclusive. 0. To go back: ");
@@ -85,25 +62,49 @@ void setPayRate(void) {
 		printf("\nEntered pay rate not between 1 and 1,000 inclusive. 0. To go back: ");
 		scanf("%lf", &rateOfPay);
 	}
-	if (rateOfPay == 0) {
+	if (rateOfPay == 0.0) {
 		return;
 	}
 	payRate = rateOfPay;
 }
 
+void setAmountOfHours(void) {
+	double amountOfHours;
+	printf("\nEnter an amount of hours between 0 and 8760 inclusive. 0. To go back: ");
+	scanf("%lf", &amountOfHours);
+	while (false == isValidBounds(amountOfHours, 0, 8760)) {
+		purgeBuffer();
+		printf("\nEntered amount of hours not between 1 and 8760 inclusive. 0. To go back: ");
+		scanf("%lf", &amountOfHours);
+	}
+	if (amountOfHours == 0.0) {
+		return;
+	}
+	hoursWorked = amountOfHours;
+}
+
 void setOverTimeHours(void) {
-	short int numberOfOvertimeHours;
+	double numberOfOvertimeHours;
 	printf("\nEnter an amount of overtime hours between 0 and 3328 inclusive. 0. To go back: ");
-	scanf("%hi", &numberOfOvertimeHours);
+	scanf("%lf", &numberOfOvertimeHours);
 	while (false == isValidBounds(numberOfOvertimeHours, 0, 3328)) {
 		purgeBuffer();
 		printf("\nEnter an amount of overtime hours not between 0 and 3328 inclusive. 0. To go back: ");
-		scanf("%hi", &numberOfOvertimeHours);
+		scanf("%lf", &numberOfOvertimeHours);
 	}
-	if (numberOfOvertimeHours == 0) {
+	if (numberOfOvertimeHours == 0.0) {
 		return;
 	}
 	overtimeHours = numberOfOvertimeHours;
+}
+
+short getMainMenuInput(void) {
+	printf("\n1. Calculate net income\n2. Set amount of hours (%.2f)\n3. Set pay rate (%.2f)"
+		   "\n4. Set amount of overtime hours (%.2f)\n0. Exit\n\n", hoursWorked, payRate, overtimeHours);
+	short input;
+	printf("Enter a menu option: ");
+	scanf("%hi", &input);
+	return input;
 }
 
 double calculateNetIncome(void) {
@@ -112,7 +113,9 @@ double calculateNetIncome(void) {
 }
 
 double calculateGrossIncome(void) {
-	return payRate * hoursWorked;
+	double standardIncome = payRate * hoursWorked;
+	double overtimeIncome = standardIncome * 1.5;
+	return standardIncome + overtimeIncome;
 }
 
 double calculateDeductions(double grossIncome) {
