@@ -17,12 +17,6 @@
 
 #include "anwcb.h"
 
-int main(void) {
-	initialize();
-	mainMenu();
-	return 0;
-}
-
 void initialize(void) {
 	payRate = 0.0;
 	hoursWorked = 0.0;
@@ -32,4 +26,10 @@ void initialize(void) {
 		   "This program comes with ABSOLUTELY NO WARRANTY.\nThis is free "
 		   "software, and you are welcome to redistribute it under certain "
 		   "conditions.\n");
+}
+
+int main(void) {
+	initialize();
+	mainMenu();
+	return 0;
 }
