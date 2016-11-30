@@ -13,20 +13,15 @@
  * GNU General Public License for more details.
  */
 
-#include <time.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <stdbool.h>
-
-#include "anwcb.h"
 
 void purgeBuffer(void) {
 	fseek(stdin, 0, SEEK_END);
 }
 
 bool isValidBounds(double input, short lowerBound, int upperBound) {
-	if ((input < lowerBound) || (input > upperBound)) {
+	if ((input < lowerBound) || (input > upperBound))
 		return false;
-	}
 	return true;
 }

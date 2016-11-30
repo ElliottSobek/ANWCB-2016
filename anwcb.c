@@ -16,16 +16,17 @@
 #include <stdio.h>
 
 #include "anwcb.h"
+#include "mainMenu.h"
 
 void initialize(void) {
-	payRate = 0.0;
-	hoursWorked = 0.0;
-	overtimeHours = 0.0;
+	payRate = DEFAULT_PAY_RATE;
+	hoursWorked = DEFAULT_WORK_HOURS;
+	overtimeHours = DEFAULT_OVERTIME;
 
 	printf("Alberta Net Wage Calculator (Basic) (C) 2016 Author: Elliott Sobek.\n"
-		   "This program comes with ABSOLUTELY NO WARRANTY.\nThis is free "
-		   "software, and you are welcome to redistribute it under certain "
-		   "conditions.\n");
+		"This program comes with ABSOLUTELY NO WARRANTY.\nThis is free "
+		"software, and you are welcome to redistribute it under certain "
+		"conditions.\n");
 }
 
 int main(void) {
