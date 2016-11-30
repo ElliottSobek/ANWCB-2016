@@ -13,39 +13,21 @@
  * GNU General Public License for more details.
  */
 
-#include <stdbool.h>
-
-/* Guard */
 #ifndef ANWCB_H
 #define ANWCB_H
 
-/* Macors */
-#define EI 0.0188
+#include <stdbool.h>
+
+#define EI  0.0188
 #define CPP 0.0495
+
+#define DEFAULT_PAY_RATE   0.0
+#define DEFAULT_WORK_HOURS 0.0
+#define DEFAULT_OVERTIME   0.0
 
 /* Globals */
 double payRate;
 double hoursWorked;
 double overtimeHours;
 
-// Prototypes //
-
-/* anwcb prototypes */
-int main(void);
-void initialize(void);
-
-/* mainMenu prototypes */
-void mainMenu(void);
-void setPayRate(void);
-void setAmountOfHours(void);
-void setOverTimeHours(void);
-short getMainMenuInput(void);
-double calculateNetIncome(void);
-double calculateGrossIncome(void);
-double calculateDeductions(double);
-
-/* shared prototypes */
-void purgeBuffer(void);
-bool isValidBounds(double, short, int);
-
-#endif // !ANWCB_H
+#endif /* End ANWCB_H */
