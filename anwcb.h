@@ -16,14 +16,8 @@
 #ifndef ANWCB_H
 #define ANWCB_H
 
-#include <stdbool.h>
-
 #define EI  0.0188
 #define CPP 0.0495
-
-#define DEFAULT_PAY_RATE   0.0
-#define DEFAULT_WORK_HOURS 0.0
-#define DEFAULT_OVERTIME   0.0
 
 /* Globals */
 double payRate;
