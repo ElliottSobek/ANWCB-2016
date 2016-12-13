@@ -16,6 +16,8 @@
 #ifndef SHARED_H
 #define SHARED_H
 
+#include <stdbool.h>
+
 void purgeBuffer(void);
 bool isValidBounds(double, short, int);
 
