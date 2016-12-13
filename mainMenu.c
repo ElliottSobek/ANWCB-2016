@@ -24,8 +24,11 @@
 #include "shared.h"
 
 short getMainMenuInput(void) {
-	printf("\n1. Calculate net income\n2. Set amount of hours (%.2f)\n3. Set pay rate (%.2f)"
-		"\n4. Set amount of overtime hours (%.2f)\n0. Exit\n\n", hoursWorked, payRate, overtimeHours);
+	printf("\n1. Calculate net income"
+		"\n2. Set amount of hours (%.2f)"
+		"\n3. Set pay rate (%.2f)"
+		"\n4. Set amount of overtime hours (%.2f)\n0. Exit"
+		"\n\n", hoursWorked, payRate, overtimeHours);
 	short input;
 	printf("Enter a menu option: ");
 	scanf("%hi", &input);
