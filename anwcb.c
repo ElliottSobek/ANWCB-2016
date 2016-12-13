@@ -18,6 +18,10 @@
 #include "anwcb.h"
 #include "mainMenu.h"
 
+#define DEFAULT_PAY_RATE   0.0
+#define DEFAULT_WORK_HOURS 0.0
+#define DEFAULT_OVERTIME   0.0
+
 void initialize(void) {
 	payRate = DEFAULT_PAY_RATE;
 	hoursWorked = DEFAULT_WORK_HOURS;
