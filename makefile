@@ -13,7 +13,7 @@
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Wpedantic -O3 -std=c11
+CFLAGS = -Wall -Wextra -O3 -std=c11
 
 .PHONY: all clean
 
