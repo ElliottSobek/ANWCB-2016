@@ -20,7 +20,7 @@ void purgeBuffer(void) {
 	fseek(stdin, 0, SEEK_END);
 }
 
-bool isValidBounds(double input, short lowerBound, int upperBound) {
+bool isValidBounds(const double input, const short lowerBound, const int upperBound) {
 	if ((input < lowerBound) || (input > upperBound))
 		return false;
 	return true;
