@@ -29,4 +29,4 @@ mainMenu.o: mainMenu.c
 shared.o: shared.c
 
 clean:
-	rm *.o
+	$(RM) *.o
